@@ -21,6 +21,17 @@ body {
   box-shadow: 0 12px 36px rgba(0, 0, 0, 0.08);
 }
 
+.screen-enter {
+  opacity: 0;
+  transform: translateY(14px) scale(0.985);
+}
+
+.screen-enter.screen-visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  transition: opacity 0.24s ease, transform 0.24s ease;
+}
+
 .hidden {
   display: none !important;
 }
@@ -98,6 +109,14 @@ button:active {
   font-weight: 700;
 }
 
+.mini-title span {
+  display: block;
+}
+
+#uploadColorCodeText {
+  margin-top: 4px;
+}
+
 .locked-badge {
   background: rgba(255, 255, 255, 0.55);
   padding: 18px 24px;
@@ -173,6 +192,50 @@ button:active {
   object-fit: cover;
 }
 
+#mainUploadPhoto.complete-stack {
+  position: relative;
+  width: 310px;
+  height: 230px;
+  margin: 18px auto 12px;
+  overflow: visible;
+  background: transparent;
+  box-shadow: none;
+}
+
+#mainUploadPhoto.complete-stack .stack-photo {
+  position: absolute;
+  left: 50%;
+  top: 42%;
+  aspect-ratio: 1;
+  border: 3px solid #fff;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.18);
+  object-fit: cover;
+}
+
+#mainUploadPhoto.complete-stack .stack-photo-center {
+  width: 190px;
+  height: 190px;
+  border-radius: 20px;
+  z-index: 3;
+  transform: translate(-50%, -50%);
+}
+
+#mainUploadPhoto.complete-stack .stack-photo-left,
+#mainUploadPhoto.complete-stack .stack-photo-right {
+  width: 86px;
+  height: 86px;
+  border-radius: 14px;
+  z-index: 1;
+}
+
+#mainUploadPhoto.complete-stack .stack-photo-left {
+  transform: translate(-156%, -8%) rotate(-30deg);
+}
+
+#mainUploadPhoto.complete-stack .stack-photo-right {
+  transform: translate(56%, -8%) rotate(30deg);
+}
+
 .photo-preview {
   display: flex;
   gap: 12px;
@@ -203,6 +266,29 @@ button:active {
 
 #revealBtn {
   margin-top: 28px;
+}
+
+.upload-complete .top-color-row {
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+
+.upload-complete #uploadStatusText {
+  display: none;
+}
+
+.upload-complete .mini-title {
+  margin-top: 0;
+  text-align: center;
+}
+
+.upload-complete #uploadColorCodeText {
+  font-size: 18px;
+}
+
+.upload-complete #revealBtn {
+  margin-top: 16px;
 }
 
 .carousel-wrapper {

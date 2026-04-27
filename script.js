@@ -12,7 +12,7 @@ let todayColor = null;
 let isColorLocked = false;
 let uploadedPhotos = [];
 let photoResults = [];
-const maxPhotos = 5;
+const maxPhotos = 3;
 
 const generateBtn = document.getElementById("generateBtn");
 
@@ -31,6 +31,7 @@ const uploadStatusText = document.getElementById("uploadStatusText");
 const uploadLabelBtn = document.getElementById("uploadLabelBtn");
 const uploadLabelText = document.getElementById("uploadLabelText");
 const revealBtn = document.getElementById("revealBtn");
+const uploadScreen = document.getElementById("uploadScreen");
 
 const smallColorCard = document.getElementById("smallColorCard");
 const uploadColorCodeText = document.getElementById("uploadColorCodeText");
@@ -41,19 +42,60 @@ const resultPhotoStrip = document.getElementById("resultPhotoStrip");
 const resultTitle = document.getElementById("resultTitle");
 const bestMatchText = document.getElementById("bestMatchText");
 const resultSummary = document.getElementById("resultSummary");
+const restartBtn = document.getElementById("restartBtn");
 
 function showScreen(screenId) {
   const screens = document.querySelectorAll(".screen");
+  const nextScreen = document.getElementById(screenId);
 
   screens.forEach((screen) => {
     screen.classList.add("hidden");
+    screen.classList.remove("screen-enter", "screen-visible");
   });
 
-  document.getElementById(screenId).classList.remove("hidden");
+  nextScreen.classList.remove("hidden");
+  nextScreen.classList.add("screen-enter");
+
+  requestAnimationFrame(() => {
+    nextScreen.classList.add("screen-visible");
+  });
+
+  setTimeout(() => {
+    nextScreen.classList.remove("screen-enter", "screen-visible");
+  }, 280);
 }
 
 function renderUploadSlots() {
   photoPreview.innerHTML = "";
+  photoPreview.classList.remove("hidden");
+  mainUploadPhoto.classList.remove("complete-stack");
+
+  if (photoResults.length === maxPhotos) {
+    const centerPhoto = photoResults[photoResults.length - 1];
+    const sidePhotos = photoResults.slice(0, photoResults.length - 1);
+
+    photoPreview.classList.add("hidden");
+    mainUploadPhoto.classList.add("complete-stack");
+    mainUploadPhoto.innerHTML = "";
+
+    sidePhotos.forEach((photo, index) => {
+      const img = document.createElement("img");
+      img.src = photo.src;
+      img.alt = "Uploaded photo";
+      img.classList.add(
+        "stack-photo",
+        index === 0 ? "stack-photo-left" : "stack-photo-right"
+      );
+      mainUploadPhoto.appendChild(img);
+    });
+
+    const centerImg = document.createElement("img");
+    centerImg.src = centerPhoto.src;
+    centerImg.alt = "Latest uploaded photo";
+    centerImg.classList.add("stack-photo", "stack-photo-center");
+    mainUploadPhoto.appendChild(centerImg);
+    return;
+  }
 
   for (let i = 0; i < maxPhotos; i++) {
     const photoCard = document.createElement("div");
@@ -72,16 +114,19 @@ function renderUploadSlots() {
 
   if (photoResults.length > 0) {
     mainUploadPhoto.innerHTML = `<img src="${photoResults[photoResults.length - 1].src}" alt="Latest uploaded photo" />`;
+  } else {
+    mainUploadPhoto.innerHTML = "";
   }
 }
 
 function updateCreditText() {
-  const remaining = maxPhotos - uploadedPhotos.length;
+  const remaining = maxPhotos - photoResults.length;
 
   if (remaining === 0) {
-    creditText.textContent = "You have uploaded 5 photos today";
-    uploadCreditText.textContent = "You have uploaded 5 photos today";
-    uploadStatusText.textContent = "Congrats!";
+    creditText.textContent = `You have uploaded ${maxPhotos} photos`;
+    uploadCreditText.textContent = `You have uploaded ${maxPhotos} photos`;
+    uploadStatusText.textContent = "";
+    uploadScreen.classList.add("upload-complete");
     uploadLabelBtn.classList.add("hidden");
     uploadLabelText.classList.add("hidden");
     revealBtn.classList.remove("hidden");
@@ -90,6 +135,7 @@ function updateCreditText() {
 
   const text = `${remaining} left`;
 
+  uploadScreen.classList.remove("upload-complete");
   creditText.textContent = text;
   uploadCreditText.textContent = text;
 }
@@ -156,6 +202,10 @@ revealBtn.addEventListener("click", () => {
 
 resultPhotoStrip.addEventListener("scroll", () => {
   updateSelectedPhoto();
+});
+
+restartBtn.addEventListener("click", () => {
+  restartExperience();
 });
 
 function handlePhotoUpload(inputElement) {
@@ -295,9 +345,9 @@ function updateSelectedPhoto() {
       label.textContent = "🏆 Best Match!";
       closestItem.appendChild(label);
 
-      resultTitle.textContent = "Best Match!";
+      resultTitle.textContent = "This is the best match!";
     } else {
-      resultTitle.textContent = "Other Color Memory";
+      resultTitle.textContent = " ";
     }
   }
 }
@@ -334,4 +384,51 @@ function calculateColorMatch(imgElement, targetRgb) {
   }
 
   return Math.round((matchedPixels / totalPixels) * 100);
+}
+
+function restartExperience() {
+  todayColor = null;
+  isColorLocked = false;
+  uploadedPhotos = [];
+  photoResults = [];
+
+  const blankCard = document.querySelector(".blank");
+  blankCard.style.backgroundColor = "#FFFFFF";
+  blankCard.style.transform = "scale(1)";
+  blankCard.querySelector("span").textContent = "#FFFFFF";
+
+  pickedColorCard.style.backgroundColor = "";
+  colorCodeText.textContent = "";
+  smallColorCard.style.backgroundColor = "";
+  uploadColorCodeText.textContent = "";
+  resultColorCard.style.backgroundColor = "";
+  resultColorCodeText.textContent = "";
+
+  mainUploadPhoto.innerHTML = "";
+  mainUploadPhoto.classList.remove("complete-stack");
+  photoPreview.innerHTML = "";
+  photoPreview.classList.remove("hidden");
+  resultPhotoStrip.innerHTML = "";
+
+  photoInput.value = "";
+  photoInputUpload.value = "";
+  photoInput.disabled = false;
+  photoInputUpload.disabled = false;
+
+  creditText.textContent = `up to ${maxPhotos} photos`;
+  uploadCreditText.textContent = `up to ${maxPhotos} photos`;
+  uploadStatusText.textContent = "Go find your color!";
+  uploadScreen.classList.remove("upload-complete");
+  uploadLabelBtn.classList.remove("hidden");
+  uploadLabelText.classList.remove("hidden");
+  revealBtn.classList.add("hidden");
+
+  resultTitle.textContent = "Swipe to view your colors";
+  bestMatchText.textContent = "Match: --%";
+  resultSummary.textContent = "";
+
+  generateBtn.disabled = false;
+  generateBtn.textContent = "Generate Color";
+
+  showScreen("landingScreen");
 }

@@ -36,7 +36,7 @@
     </label>
 
     <p class="upload-label">Upload Photo</p>
-    <p id="creditText">up to 5 per day</p>
+    <p id="creditText">up to 3 photos</p>
   </section>
 
   <section id="uploadScreen" class="screen hidden">
@@ -46,7 +46,10 @@
       <div id="smallColorCard"></div>
       <div>
         <p id="uploadStatusText" class="subtitle left-text">Go find your color!</p>
-        <p class="mini-title">Color code: <span id="uploadColorCodeText"></span></p>
+        <p class="mini-title">
+          <span>Color code</span>
+          <span id="uploadColorCodeText"></span>
+        </p>
       </div>
     </div>
 
@@ -60,7 +63,7 @@
     </label>
 
     <p id="uploadLabelText" class="upload-label">Upload Photo</p>
-    <p id="uploadCreditText">up to 5 per day</p>
+    <p id="uploadCreditText">up to 3 photos</p>
 
     <button id="revealBtn" class="hidden">See your color match!</button>
   </section>
@@ -81,7 +84,7 @@
 
     <p id="bestMatchText">Match: --%</p>
 
-    <button>Share with your friend!</button>
+    <button id="restartBtn">Restart</button>
     <p id="resultSummary"></p>
   </section>
 

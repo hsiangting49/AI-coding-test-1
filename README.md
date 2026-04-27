@@ -6,7 +6,7 @@ A mini web app that gives users a daily color challenge and lets them collect ph
 
 ## MVP Features
 - Random daily color
-- Upload up to 5 photos per day
+- Upload up to 3 photos
 - Preview uploaded photos
 - Calculate color match percentage
 - Save daily memory records
