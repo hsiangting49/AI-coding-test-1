@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Color Memory Book</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Landing Screen -->
+  <section id="landingScreen" class="screen">
+    <h1>Color of the Day</h1>
+    <p class="subtitle">Pick your color today!</p>
+  
+    <div class="color-card blank">
+      <p class="color-code-label">Color code:</p>
+      <span>#FFFFFF</span>
+    </div>
+  
+    <button id="generateBtn">Generate Color</button>
+  </section>
+
+  <!-- Picked Color Screen -->
+  <section id="pickedScreen" class="screen hidden">
+    <h1>Color of the Day</h1>
+    <p class="subtitle">Go find your color!</p>
+  
+    <div id="pickedColorCard" class="color-card">
+      <div class="locked-badge">Locked!</div>
+    </div>
+  
+    <p class="color-code-line">Color code: <span id="colorCodeText"></span></p>
+  
+    <label class="upload-btn">
+      +
+      <input type="file" id="photoInput" accept="image/*" multiple />
+    </label>
+  
+    <p class="upload-label">Upload Photo</p>
+    <p id="creditText">up to 5 per day</p>
+  </section>
+
+  <!-- Uploading Screen -->
+  <section id="uploadScreen" class="screen hidden">
+    <h1>Color of the Day</h1>
+    <p class="subtitle">Go find your color!</p>
+  
+    <div class="top-color-row">
+      <div id="smallColorCard"></div>
+      <div>
+        <p class="mini-title">Color code:</p>
+        <p id="uploadColorCodeText"></p>
+      </div>
+    </div>
+  
+    <div id="photoPreview" class="photo-preview"></div>
+  
+    <label class="upload-btn">
+      +
+      <input type="file" id="photoInputUpload" accept="image/*" multiple />
+    </label>
+  
+    <p class="upload-label">Upload Photo</p>
+    <p id="uploadCreditText">up to 5 per day</p>
+  </section>
+
+  <!-- Result Screen -->
+  <section id="resultScreen" class="screen hidden">
+    <h1>Color of the Day</h1>
+
+    <div id="resultColorCard" class="color-card small">
+      <p>Color code:</p>
+      <span id="resultColorCodeText"></span>
+    </div>
+
+    <h2>🏆 Best Match!</h2>
+
+    <div id="resultPhotoStrip"></div>
+    <div id="bestPhotoContainer"></div>
+
+    <p id="bestMatchText"></p>
+
+    <button>Share with your friend!</button>
+    <p id="resultSummary"></p>
+  </section>
+
+  <script src="script.js"></script>
+</body>
+</html>

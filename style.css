@@ -1,0 +1,224 @@
+* {
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: Arial, sans-serif;
+    background: #f3f1ee;
+    margin: 0;
+    padding: 32px 16px;
+    text-align: center;
+    color: #111;
+  }
+  
+  .screen {
+    max-width: 390px;
+    min-height: 720px;
+    margin: 0 auto;
+    background: #fffdfb;
+    padding: 46px 28px 32px;
+    border-radius: 28px;
+    box-shadow: 0 12px 36px rgba(0, 0, 0, 0.08);
+  }
+  
+  .hidden {
+    display: none;
+  }
+  
+  h1 {
+    font-family: "Comic Sans MS", "Marker Felt", cursive;
+    font-size: 34px;
+    margin: 0 0 38px;
+    letter-spacing: 0.5px;
+  }
+  
+  h2 {
+    font-size: 18px;
+    margin: 24px 0 16px;
+  }
+  
+  p {
+    margin: 8px 0;
+    font-size: 14px;
+  }
+  
+  button {
+    padding: 14px 28px;
+    border-radius: 12px;
+    border: 2px solid #111;
+    background: white;
+    cursor: pointer;
+    font-weight: 700;
+    box-shadow: 0 3px 0 #111;
+  }
+  
+  button:active {
+    transform: translateY(2px);
+    box-shadow: 0 1px 0 #111;
+  }
+  
+  .color-card {
+    width: 250px;
+    height: 250px;
+    margin: 32px auto 20px;
+    border-radius: 18px;
+    background: #ffffff;
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.14);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .color-card p {
+    font-weight: 700;
+  }
+  
+  .color-card.small {
+    width: 132px;
+    height: 132px;
+    margin-top: 22px;
+  }
+  
+  .blank {
+    border: 1px solid #eeeeee;
+  }
+  
+  .upload-btn {
+    width: 58px;
+    height: 58px;
+    border: 2px solid #333;
+    border-radius: 12px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    margin-top: 32px;
+    font-size: 22px;
+    background: #fff;
+    box-shadow: 0 3px 0 #111;
+  }
+  
+  .upload-btn:active {
+    transform: translateY(2px);
+    box-shadow: 0 1px 0 #111;
+  }
+  
+  .upload-btn input {
+    display: none;
+  }
+  
+  #creditText,
+  #uploadCreditText {
+    color: #777;
+    font-size: 12px;
+  }
+  
+  .top-color-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 22px;
+    margin-bottom: 22px;
+  }
+  
+  #smallColorCard {
+    width: 72px;
+    height: 72px;
+    border-radius: 14px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.16);
+  }
+  
+  .photo-preview {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: 22px 0;
+  }
+  
+  .photo-card {
+    width: 92px;
+  }
+  
+  .photo-card img {
+    width: 92px;
+    height: 92px;
+    object-fit: cover;
+    border-radius: 14px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.12);
+  }
+  
+  .photo-card p {
+    font-size: 12px;
+    color: #555;
+  }
+  
+  #bestPhotoContainer img {
+    width: 178px;
+    height: 178px;
+    object-fit: cover;
+    border-radius: 18px;
+    box-shadow: 0 6px 16px rgba(0,0,0,0.18);
+  }
+  
+  #bestMatchText {
+    font-weight: 700;
+    margin-top: 14px;
+  }
+  
+  #resultSummary {
+    margin-top: 14px;
+    color: #777;
+    font-size: 12px;
+    line-height: 1.5;
+  }
+
+  .subtitle {
+    font-weight: 700;
+    margin-bottom: 20px;
+  }
+  
+  .color-code-label,
+  .color-code-line,
+  .mini-title {
+    font-size: 12px;
+    font-weight: 700;
+  }
+  
+  .locked-badge {
+    background: rgba(255, 255, 255, 0.55);
+    padding: 18px 24px;
+    border-radius: 12px;
+    font-weight: 700;
+    color: rgba(80, 40, 40, 0.65);
+  }
+  
+  .upload-label {
+    font-weight: 600;
+    margin-top: 12px;
+  }
+
+  #resultPhotoStrip {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    align-items: center;
+    margin: 24px 0 16px;
+  }
+  
+  .result-thumb {
+    width: 54px;
+    height: 54px;
+    object-fit: cover;
+    border-radius: 12px;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.12);
+    opacity: 0.75;
+  }
+  
+  .result-thumb.best {
+    width: 78px;
+    height: 78px;
+    opacity: 1;
+    border: 2px solid #111;
+  }
