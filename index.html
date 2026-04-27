@@ -8,64 +8,63 @@
 </head>
 <body>
 
-  <!-- Landing Screen -->
   <section id="landingScreen" class="screen">
     <h1>Color of the Day</h1>
     <p class="subtitle">Pick your color today!</p>
-  
+
     <div class="color-card blank">
       <p class="color-code-label">Color code:</p>
       <span>#FFFFFF</span>
     </div>
-  
+
     <button id="generateBtn">Generate Color</button>
   </section>
 
-  <!-- Picked Color Screen -->
   <section id="pickedScreen" class="screen hidden">
     <h1>Color of the Day</h1>
     <p class="subtitle">Go find your color!</p>
-  
+
     <div id="pickedColorCard" class="color-card">
       <div class="locked-badge">Locked!</div>
     </div>
-  
+
     <p class="color-code-line">Color code: <span id="colorCodeText"></span></p>
-  
+
     <label class="upload-btn">
       +
       <input type="file" id="photoInput" accept="image/*" multiple />
     </label>
-  
+
     <p class="upload-label">Upload Photo</p>
     <p id="creditText">up to 5 per day</p>
   </section>
 
-  <!-- Uploading Screen -->
   <section id="uploadScreen" class="screen hidden">
     <h1>Color of the Day</h1>
-    <p class="subtitle">Go find your color!</p>
-  
+
     <div class="top-color-row">
       <div id="smallColorCard"></div>
       <div>
-        <p class="mini-title">Color code:</p>
-        <p id="uploadColorCodeText"></p>
+        <p id="uploadStatusText" class="subtitle left-text">Go find your color!</p>
+        <p class="mini-title">Color code: <span id="uploadColorCodeText"></span></p>
       </div>
     </div>
-  
+
+    <div id="mainUploadPhoto"></div>
+
     <div id="photoPreview" class="photo-preview"></div>
-  
-    <label class="upload-btn">
+
+    <label id="uploadLabelBtn" class="upload-btn">
       +
       <input type="file" id="photoInputUpload" accept="image/*" multiple />
     </label>
-  
-    <p class="upload-label">Upload Photo</p>
+
+    <p id="uploadLabelText" class="upload-label">Upload Photo</p>
     <p id="uploadCreditText">up to 5 per day</p>
+
+    <button id="revealBtn" class="hidden">See your color match!</button>
   </section>
 
-  <!-- Result Screen -->
   <section id="resultScreen" class="screen hidden">
     <h1>Color of the Day</h1>
 
@@ -74,12 +73,13 @@
       <span id="resultColorCodeText"></span>
     </div>
 
-    <h2>🏆 Best Match!</h2>
+    <h2 id="resultTitle">Swipe to view your colors</h2>
 
-    <div id="resultPhotoStrip"></div>
-    <div id="bestPhotoContainer"></div>
+    <div class="carousel-wrapper">
+      <div id="resultPhotoStrip"></div>
+    </div>
 
-    <p id="bestMatchText"></p>
+    <p id="bestMatchText">Match: --%</p>
 
     <button>Share with your friend!</button>
     <p id="resultSummary"></p>
