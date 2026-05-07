@@ -367,3 +367,170 @@ button:active {
   font-size: 12px;
   line-height: 1.5;
 }
+
+@media (max-height: 680px) {
+  :root {
+    --screen-padding-y: 22px;
+    --title-size: 2rem;
+    --heading-size: 1.15rem;
+    --body-size: 0.875rem;
+    --small-size: 0.75rem;
+    --button-size: 0.875rem;
+    --card-size: 178px;
+    --small-card-size: 98px;
+    --main-photo-size: 150px;
+    --stack-width: 240px;
+    --carousel-height: 168px;
+    --result-thumb-size: 56px;
+    --selected-thumb-size: 112px;
+  }
+
+  body {
+    padding-top: 12px;
+    padding-bottom: 12px;
+  }
+
+  .screen {
+    min-height: calc(100dvh - 24px);
+    max-height: calc(100dvh - 24px);
+    padding-bottom: 18px;
+    border-radius: 20px;
+  }
+
+  h1 {
+    margin-bottom: 18px;
+  }
+
+  h2 {
+    margin: 14px 0 10px;
+  }
+
+  p {
+    margin: 5px 0;
+  }
+
+  button {
+    padding: 11px 20px;
+  }
+
+  .color-card {
+    margin: 18px auto 14px;
+  }
+
+  .subtitle {
+    margin-bottom: 12px;
+  }
+
+  .upload-btn {
+    width: 48px;
+    height: 48px;
+    margin-top: 18px;
+    font-size: 20px;
+  }
+
+  .upload-label {
+    margin-top: 8px;
+  }
+
+  .top-color-row {
+    gap: 14px;
+    margin-bottom: 14px;
+  }
+
+  #smallColorCard {
+    width: 56px;
+    height: 56px;
+  }
+
+  #mainUploadPhoto {
+    margin: 12px auto 14px;
+  }
+
+  #mainUploadPhoto.complete-stack {
+    margin: 10px auto 8px;
+  }
+
+  .photo-preview {
+    gap: 8px;
+    margin: 14px 0;
+  }
+
+  .photo-card {
+    width: 44px;
+    height: 44px;
+  }
+
+  #revealBtn {
+    margin-top: 16px;
+  }
+
+  .carousel-wrapper {
+    height: var(--carousel-height);
+    margin: 16px 0 12px;
+  }
+
+  #resultPhotoStrip {
+    padding: 26px 84px 14px;
+  }
+
+  #bestMatchText {
+    margin: 10px 0 18px;
+  }
+}
+
+@media (max-height: 560px) {
+  :root {
+    --screen-padding-y: 16px;
+    --title-size: 1.55rem;
+    --heading-size: 1rem;
+    --body-size: 0.75rem;
+    --small-size: 0.6875rem;
+    --button-size: 0.75rem;
+    --card-size: 132px;
+    --small-card-size: 74px;
+    --main-photo-size: 112px;
+    --stack-width: 190px;
+    --carousel-height: 130px;
+    --result-thumb-size: 44px;
+    --selected-thumb-size: 88px;
+  }
+
+  body {
+    padding: 8px 6px;
+  }
+
+  .screen {
+    min-height: calc(100dvh - 16px);
+    max-height: calc(100dvh - 16px);
+    padding-bottom: 14px;
+    border-radius: 16px;
+  }
+
+  h1 {
+    margin-bottom: 12px;
+  }
+
+  .color-card {
+    margin: 12px auto 10px;
+  }
+
+  .locked-badge {
+    padding: 10px 14px;
+  }
+
+  .upload-btn {
+    width: 42px;
+    height: 42px;
+    margin-top: 12px;
+  }
+
+  #resultPhotoStrip {
+    padding: 20px 64px 10px;
+    gap: 10px;
+  }
+
+  .best-label {
+    font-size: 10px;
+    padding: 4px 8px;
+  }
+}
